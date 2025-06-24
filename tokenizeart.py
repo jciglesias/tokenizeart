@@ -3,7 +3,12 @@ import asyncio
 from py_near.account import Account
 from py_near.dapps.core import NEAR
 
+ipfs_gateway = "https://ipfs.io/ipfs/"
+
 st.title("Check Balance and Send Money on NEAR Testnet (py-near)")
+file_to_tokenize = st.file_uploader("Upload a file to tokenize:", type=["jpg", "jpeg", "png", "gif"])
+if file_to_tokenize is not None:
+    st.image(file_to_tokenize, caption="Uploaded Image", use_column_width=True)
 
 account_id = st.text_input("Account ID:", "bob.testnet").strip()
 private_key = st.text_input("Private Key:", "ed25519:...", type="password").strip()
