@@ -1,6 +1,5 @@
 services:
   app:
-    # image: tokenizart:latest
     build:
       dockerfile: Dockerfile
       context: .
@@ -8,14 +7,24 @@ services:
       - "8501:8501"
     volumes:
       - .:/app
+    depends_on:
+      - ipfs
+    networks:
+      - tokenizart_network
   
   ipfs:
     image: ipfs/kubo:latest
     ports:
-      - "4001:4001"
+      - "8080:8080"
     volumes:
       - ipfs_data:/data/ipfs
+    networks:
+      - tokenizart_network
 
 volumes:
   ipfs_data:
     driver: local
+
+networks:
+  tokenizart_network:
+    driver: bridge
