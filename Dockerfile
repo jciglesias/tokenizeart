@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY . /app
 
-RUN apt-get update && apt-get install -y make
+RUN apt-get update && \
+    apt-get install -y make && \
+    make
 
 CMD [ "make", "run" ]
