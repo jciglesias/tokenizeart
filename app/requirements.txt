@@ -1,0 +1,9 @@
+streamlit
+py-near
+Authlib
+PyNaCl
+base58
+loguru
+py_near_primitives
+pydantic
+httpx

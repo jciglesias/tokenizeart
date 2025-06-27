@@ -136,7 +136,7 @@ ENV/
 env.bak/
 venv.bak/
 .conda
-.streamlit/secrets.toml
+app/.streamlit/secrets.toml
 
 # Spyder project settings
 .spyderproject
