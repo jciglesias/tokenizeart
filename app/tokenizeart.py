@@ -10,11 +10,11 @@ if not st.user.is_logged_in:
         st.login()
 
 else:
+    if st.sidebar.button("Logout"):
+        st.logout()
     if "wallet" not in st.session_state:
         dialogs.create_wallet_dialog()
     else:    
-        if st.sidebar.button("Logout"):
-            st.logout()
         st.write(st.user["email"])
         result = asyncio.run(get_nfts(
             st.session_state.wallet["name"],
