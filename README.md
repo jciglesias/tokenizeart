@@ -20,7 +20,7 @@ While the subject mentions BNB Chain, NEAR Protocol offers superior developer ex
 ## Project Architecture
 
 ### Components
-- **Smart Contract** (`contract/nft/contract.py`): NEAR Protocol NFT contract written in Python
+- **Smart Contract** (`code/nft/contract.py`): NEAR Protocol NFT contract written in Python
 - **Web Application** (`app/`): Streamlit-based frontend for user interaction
 - **IPFS Integration**: Decentralized storage for NFT metadata and images
 - **Wallet Integration**: NEAR wallet connectivity for seamless transactions
@@ -121,7 +121,7 @@ streamlit run app/tokenizeart.py
 
 ### Testnet Deployment
 The contract has been deployed on NEAR testnet:
-- **Contract Account**: `[TO_BE_UPDATED]`
+- **Contract Account**: `tokenizeart.testnet`
 - **Network**: NEAR Testnet
 - **Explorer**: https://testnet.nearblocks.io/
 
@@ -158,7 +158,7 @@ tokenizeart/
 │   │   ├── mint.py         # Minting interface
 │   │   └── send_near.py    # Transfer functionality
 │   └── utils/              # Utility functions
-├── contract/               # Smart contract
+├── code/                   # Smart contract
 │   └── nft/
 │       └── contract.py     # NFT contract code
 └── wallets/               # Wallet configurations
