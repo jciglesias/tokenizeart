@@ -15,7 +15,6 @@ if st.user.is_logged_in:
             try:
                 results = asyncio.run(run(account_id, private_key, None, 0))
                 st.session_state.balance = results['balance']
-                # st.write(f"Balance: {results['balance']} NEAR")
             except Exception as e:
                 st.error(f"Error: {e}")
         st.write(f"Balance: {st.session_state.balance} NEAR")
