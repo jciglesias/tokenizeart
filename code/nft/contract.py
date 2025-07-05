@@ -49,6 +49,15 @@ class NFTContract(Contract):
         return self.storage.get(tokens_key)
     
     @view
+    def ownerOf(self, token_id: str) -> str:
+        """Returns the owner of the specified token ID (required by subject)"""
+        tokens_key = f"tokens:{token_id}"
+        token = self.storage.get(tokens_key)
+        if token:
+            return token["owner_id"]
+        return None
+    
+    @view
     def nft_list(self):
         # if self.predecessor_account_id == self.storage.get("owner_id"):
         #     return {key: self.storage[key] for key in self.storage if key.startswith("tokens:")}

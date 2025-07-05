@@ -16,15 +16,19 @@ if st.user.is_logged_in and "wallet" in st.session_state:
             st.success(f"File uploaded to IPFS with CID: {cid}")
             st.image(f"{ipfs_gateway}{cid}", caption="Image from Local IPFS Gateway")
             st.write(f"IPFS Link: {ipfs_gateway}{cid}")
+            # Ensure title includes "42" as required by subject
+            title = f"TokenizeArt 42 - {file_to_tokenize.name}"
+            
             result = asyncio.run(mint_nft( 
                 st.session_state.wallet["name"],
                 st.session_state.wallet["password"],
                 cid,
                 {
-                    "title": file_to_tokenize.name,
-                    "description": "Tokenized file",
+                    "title": title,
+                    "description": "Tokenized file for TokenizeArt project",
                     "media": f"{ipfs_gateway}{cid}",
                     "media_hash": cid,
+                    "artist": st.user["email"],
                     "copies": 1
                 },
                 st.session_state.wallet["name"]
