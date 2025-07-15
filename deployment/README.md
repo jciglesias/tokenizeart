@@ -51,10 +51,10 @@ near view tokenizeart-dev.testnet nft_token '{"token_id": "test"}'
 
 ### Contract Address
 **Update this section once deployed:**
-- Contract Account: `[TO_BE_UPDATED]`
+- Contract Account: `tokenizeart.testnet`
 - Network: NEAR Testnet
-- Deployment Date: [TO_BE_UPDATED]
-- Transaction Hash: [TO_BE_UPDATED]
+- Deployment Date: 04/07/2025
+- Transaction Hash: CPPWyBA6Mr6x2BnLfrRXyWqcPJRist9S4fduw4FLGRBk
 
 ## Deployment Scripts
 

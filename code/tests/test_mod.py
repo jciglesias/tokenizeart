@@ -150,3 +150,34 @@ class TestNFTContract(NearTestCase):
         result = result.json()
         assert isinstance(result["nfts"], list)
         assert all(token_id in result["nfts"] for token_id in token_ids), "Not all NFTs found in list"
+
+    def test_nfts_for_sale(self):
+        # mint an NFT and list it for sale
+        token_id = "nft7"
+        metadata = {
+            "title": "NFT For Sale",
+            "description": "Minted by Bob",
+            "media": "ipfs://media2.png"
+        }
+        price = int(0.25 * 1e24)  # 0.25 NEAR
+        self.contract.call_as(
+            account=self.bob,
+            method_name="nft_mint",
+            args={
+                "token_id": token_id,
+                "metadata": metadata,
+                "receiver_id": self.bob.account_id
+            }
+        )
+        self.contract.call_as(
+            account=self.bob,
+            method_name="nft_approve_for_sale",
+            args={
+                "token_id": token_id,
+                "price": price
+            }
+        )
+        result = self.contract.view("nfts_for_sale", {})
+        result = result.json()
+        assert isinstance(result["sales"], dict)
+        assert token_id in result["sales"], "NFT not found in sales list"
